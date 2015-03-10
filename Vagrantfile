@@ -54,6 +54,12 @@ Vagrant.configure(2) do |config|
 
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
+
+    # Customize the amount of CPU
+    vb.cpus = 4
+
+    # Limit CPU usage to 50% of hosts CPU max
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
   #
   # View the documentation for the provider you are using for more

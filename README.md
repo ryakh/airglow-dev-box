@@ -10,13 +10,29 @@
 If asked for password while launching your VM enter your **hosts** root password
 — that happens due to NFS setup.
 
+If for whatever reason you will need to ssh into the box you can do so by using
+opening ssh tunnel to 192.168.33.10 (box is running private network with the
+host. Username and password:
+
+```
+login:    vagrant
+password: vagrant
+```
+
 # Getting started
 
     > git clone https://github.com/ryakh/airglow-dev-box.git
     > cd airglow-dev-box
     > vagrant up
 
-That's it.
+Access the virtual machine with `vagrant ssh` and run following commands:
+
+```sh
+> echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+> echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+> source .bashrc
+> rbenv install 2.2.0 && rbenv rehash
+```
 
 After the installation has finished, you can access the virtual machine with
 
