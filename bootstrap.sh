@@ -26,9 +26,9 @@ ln -s /usr/bin/nodejs /usr/bin/node
 
 install NPM npm
 
-npm cache clean -f
-npm install -g n
-n stable
+npm cache clean -f >/dev/null 2>&1
+npm install -g n >/dev/null 2>&1
+n stable >/dev/null 2>&1
 
 install 'ruby build dependencies' autoconf bison  libssl-dev libyaml-dev \
   libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
@@ -41,7 +41,7 @@ EOF
 
 add-apt-repository ppa:nginx/stable
 apt-get update
-install NGINX nginx
+install NGINX nginx 
 
 echo installing Watchman
 install automake

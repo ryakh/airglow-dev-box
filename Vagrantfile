@@ -80,5 +80,10 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
-  config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true
+  Dir.glob('configs/*') do |c|
+    config.vm.provision :file, source: "#{c}", destination: "/tmp/#{c}"
+  end
+
+  config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true, run: 'once'
+  config.vm.provision :shell, path: 'servers.sh', keep_color: true, run: 'always'
 end
