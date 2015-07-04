@@ -9,7 +9,11 @@ update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 apt-get -y update && apt-get -y upgrade
 
 apt-get install zsh
-chsh -s /bin/zsh
+chsh -s /bin/zsh vagrant
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+cat ~/.zshrc ~/.zshrc.pre-oh-my-zsh > ~/.zshrc-new
+rm ~/.zshrc
+mv ~/.zshrc-new ~/.zshrc
 
 install HTOP htop
 
@@ -26,8 +30,13 @@ sudo -u postgres createdb -O vagrant vagrant
 sudo -u postgres createdb -O vagrant airglow
 sudo -u postgres createdb -O vagrant airglow_test
 
+add-apt-repository ppa:nginx/stable
+apt-get update
+install NGINX nginx
+
 install NFS nfs-kernel-server
 mkdir /code
 echo '/code *(rw,insecure,no_root_squash,no_subtree_check,sync)' >> /etc/exports
 exportfs -ra
 service nfs-kernel-server restart
+chown vagrant:vagrant code

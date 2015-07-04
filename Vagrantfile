@@ -81,6 +81,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  #
+
+  config.vm.provision :file, source: "dotfiles/.zshrc", destination: "~/.zshrc"
 
   Dir.glob('configs/*') do |c|
     config.vm.provision :file, source: "#{c}", destination: "/tmp/#{c}"

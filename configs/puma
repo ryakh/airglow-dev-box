@@ -2,10 +2,8 @@
 
 environment 'development'
 
-pidfile '/tmp/airglow.pid'
+pidfile    '/tmp/airglow.pid'
 state_path '/tmp/airglow.state'
-bind 'unix:///tmp/airglow.sock'
+bind       'unix:///tmp/airglow.sock'
 
-# CHANGEME - change next lines to match your setup
-directory '/host/Code/airglow/airglow-api'
-stdout_redirect '/host/Code/airglow/airglow-api/log/puma.log', '/host/Code/airglow/airglow-api/log/puma_error.log'
+activate_control_app

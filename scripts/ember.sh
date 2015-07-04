@@ -4,8 +4,6 @@ function install {
     apt-get -y install "$@" >/dev/null 2>$1
 }
 
-su vagrant << EOF
-
 echo installing Watchman
 install automake
 install autoconf
@@ -25,13 +23,7 @@ npm cache clean -f >/dev/null 2>&1
 npm install -g n >/dev/null 2>&1
 n stable >/dev/null 2>&1
 
-add-apt-repository ppa:nginx/stable
-apt-get update
-install NGINX nginx
-
 echo installing Ember-CLI
 npm install -g ember-cli >/dev/null 2>&1
 npm install -g bower >/dev/null 2>&1
 npm install -g phantomjs >/dev/null 2>&1
-
-EOF
