@@ -22,6 +22,8 @@ Vagrant.configure(2) do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
+  config.ssh.forward_agent = true
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -42,7 +44,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "~/", "/host", type: "nfs"
+  # config.vm.synced_folder "~/", "/host", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -59,7 +61,7 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
 
     # Limit CPU usage to 50% of hosts CPU max
-    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "60"]
   end
   #
   # View the documentation for the provider you are using for more
@@ -84,6 +86,9 @@ Vagrant.configure(2) do |config|
     config.vm.provision :file, source: "#{c}", destination: "/tmp/#{c}"
   end
 
-  config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true, run: 'once'
-  config.vm.provision :shell, path: 'servers.sh', keep_color: true, run: 'always'
+  config.vm.provision :shell, path: 'scripts/bootstrap.sh', keep_color: true, run: 'once'
+  config.vm.provision :shell, path: 'scripts/servers.sh', keep_color: true, run: 'once'
+
+  config.vm.provision :shell, path: 'scripts/ember.sh', keep_color: true, run: 'once'
+  config.vm.provision :shell, path: 'scripts/rubies.sh', keep_color: true, run: 'once'
 end
