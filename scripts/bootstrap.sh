@@ -39,4 +39,4 @@ mkdir /code
 echo '/code *(rw,insecure,no_root_squash,no_subtree_check,sync)' >> /etc/exports
 exportfs -ra
 service nfs-kernel-server restart
-chown vagrant:vagrant code
+chown vagrant:vagrant /code
