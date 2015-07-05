@@ -33,8 +33,8 @@ Access the virtual machine with `vagrant ssh` and run following commands:
 > echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 > source .zshrc
 >
-> sudo install automake
-> sudo install autoconf
+> sudo apt-get install automake
+> sudo apt-get install autoconf
 > sudo git clone https://github.com/facebook/watchman.git /home/vagrant/watchman >/dev/null 2>&1
 > sudo cd /home/vagrant/watchman
 > sudo ./autogen.sh >/dev/null 2>&1
