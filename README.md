@@ -25,6 +25,12 @@ password: vagrant
     > cd airglow-dev-box
     > vagrant up
 
+After installation finishes run:
+
+```sh
+> vagrant plugin install vagrant-nfs_guest
+```
+
 Access the virtual machine with `vagrant ssh` and run following commands:
 
 ```sh

@@ -31,9 +31,9 @@ add-apt-repository ppa:nginx/stable
 apt-get update
 install NGINX nginx
 
-install NFS nfs-kernel-server
-mkdir /code
-echo '/code *(rw,insecure,no_root_squash,no_subtree_check,sync)' >> /etc/exports
-exportfs -ra
-service nfs-kernel-server restart
-chown vagrant:vagrant /code
+# install NFS nfs-kernel-server
+# mkdir /code
+# echo '/code *(rw,insecure,no_root_squash,no_subtree_check,sync)' >> /etc/exports
+# exportfs -ra
+# service nfs-kernel-server restart
+# chown vagrant:vagrant /code
