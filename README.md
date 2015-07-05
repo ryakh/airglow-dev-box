@@ -28,10 +28,10 @@ password: vagrant
 Access the virtual machine with `vagrant ssh` and run following commands:
 
 ```sh
-> echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-> echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-> source .bashrc
-> rbenv install 2.2.0 && rbenv rehash
+> sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+> echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+> echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+> source .zshrc
 ```
 
 After the installation has finished, you can access the virtual machine with
