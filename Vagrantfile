@@ -84,7 +84,6 @@ Vagrant.configure(2) do |config|
   #
 
   config.vm.provision :file, source: "dotfiles/.zshrc", destination: "/home/vagrant/.zshrc-template"
-  config.vm.provision :file, source: "postinstall/zsh.sh", destination: "/home/vagrant/zsh.sh"
 
   Dir.glob('configs/*') do |c|
     config.vm.provision :file, source: "#{c}", destination: "/tmp/#{c}"

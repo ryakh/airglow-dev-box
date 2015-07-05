@@ -4,16 +4,6 @@ function install {
     apt-get -y install "$@" >/dev/null 2>$1
 }
 
-echo installing Watchman
-install automake
-install autoconf
-git clone https://github.com/facebook/watchman.git /home/vagrant/watchman >/dev/null 2>&1
-cd /home/vagrant/watchman
-./autogen.sh >/dev/null 2>&1
-./configure >/dev/null 2>&1
-make >/dev/null 2>&1
-make install >/dev/null 2>&1
-
 install 'ExecJS runtime' nodejs
 ln -s /usr/bin/nodejs /usr/bin/node
 

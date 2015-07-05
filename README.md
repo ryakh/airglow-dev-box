@@ -32,6 +32,15 @@ Access the virtual machine with `vagrant ssh` and run following commands:
 > echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
 > echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 > source .zshrc
+>
+> sudo install automake
+> sudo install autoconf
+> sudo git clone https://github.com/facebook/watchman.git /home/vagrant/watchman >/dev/null 2>&1
+> sudo cd /home/vagrant/watchman
+> sudo ./autogen.sh >/dev/null 2>&1
+> sudo ./configure >/dev/null 2>&1
+> sudo make >/dev/null 2>&1
+> sudo make install >/dev/null 2>&1
 ```
 
 After the installation has finished, you can access the virtual machine with
