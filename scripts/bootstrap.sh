@@ -8,12 +8,8 @@ update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 apt-get -y update && apt-get -y upgrade
 
-apt-get install zsh
+install zsh zsh
 chsh -s /bin/zsh vagrant
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-cat ~/.zshrc ~/.zshrc.pre-oh-my-zsh > ~/.zshrc-new
-rm ~/.zshrc
-mv ~/.zshrc-new ~/.zshrc
 
 install HTOP htop
 
@@ -24,7 +20,8 @@ install SQLite sqlite3 libsqlite3-dev
 install CURL curl libcurl3 libcurl3-gnutls libcurl4-openssl-dev
 install imagemagick imagemagick
 
-install PostgreSQL postgresql postgresql-contrib libpq-dev
+# install PostgreSQL postgresql postgresql-contrib libpq-dev
+apt-get -y install postgresql postgresql-contrib libpq-dev
 sudo -u postgres createuser --superuser vagrant
 sudo -u postgres createdb -O vagrant vagrant
 sudo -u postgres createdb -O vagrant airglow

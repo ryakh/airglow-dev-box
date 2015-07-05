@@ -13,7 +13,4 @@ git clone https://github.com/sstephenson/rbenv.git /home/vagrant/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git /home/vagrant/.rbenv/plugins/ruby-build
 
 /home/vagrant/.rbenv/bin/rbenv install 2.2.0
-
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo "eval \"$(rbenv init -)\"" >> ~/.bashrc
 EOF
